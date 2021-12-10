@@ -1,19 +1,16 @@
-// server.js
-
 const express = require('express');
 
 //Create an app
 const app = express();
-app.get('/', (req, res) => {
-    res.send('Hello world\n');
-});
 
-app.get('/rest/webhooks/createIssue/issueId/:issueId', (req, res) => {
+app.post('/rest/webhooks/createIssue/issueId/:issueId', (req, res) => {
     res.send('request was ' +  req.params.issueId);
-    console.log(req)
+    console.log(req.params);
+    console.log(req);
+    console.log("====");
 });
 
 //Listen port
-const PORT = 8080;
+const PORT = 8082;
 app.listen(PORT);
 console.log(`Running on port ${PORT}`);
